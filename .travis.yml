@@ -1,0 +1,20 @@
+osx: &osx
+  os: osx
+  language: generic
+matrix:
+  include:
+  - <<: *osx
+    osx_image: xcode10.3
+  - <<: *osx
+    osx_image: xcode11.4
+  
+  install:
+    brew update || brew update
+    brew install cmake || true    
+    mkdir build
+    cd build
+    cmake ../
+  
+  script:
+    cmake --build ./
+  
