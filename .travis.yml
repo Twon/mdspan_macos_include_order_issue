@@ -8,13 +8,13 @@ matrix:
   - <<: *osx
     osx_image: xcode11.4
   
-  install:
-    brew update || brew update
-    brew install cmake || true    
-    mkdir build
-    cd build
-    cmake ../
+  install: 
+    - cd "${TRAVIS_BUILD_DIR}"
+    - mkdir build && cd build
+    - brew update || brew update
+    - brew install cmake || true    
+    - cmake ../
   
   script:
-    cmake --build ./
+    - cmake --build ./
   
