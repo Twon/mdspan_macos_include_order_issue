@@ -1,20 +1,17 @@
-osx: &osx
-  os: osx
-  language: generic
+os: osx
+language: generic
 matrix:
   include:
-  - <<: *osx
-    osx_image: xcode10.3
-  - <<: *osx
-    osx_image: xcode11.4
+  - osx_image: xcode10.3
+  - osx_image: xcode11.4
   
-  install: 
-    - cd "${TRAVIS_BUILD_DIR}"
-    - mkdir build && cd build
-    - brew update || brew update
-    - brew install cmake || true    
-    - cmake ../
-  
-  script:
-    - cmake --build ./
+install: 
+  - cd "${TRAVIS_BUILD_DIR}"
+  - mkdir build && cd build
+  - brew update || brew update
+  - brew install cmake || true    
+  - cmake ../
+
+script:
+  - cmake --build ./
   
