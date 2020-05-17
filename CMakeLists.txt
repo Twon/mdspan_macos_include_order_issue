@@ -3,7 +3,10 @@ cmake_minimum_required(VERSION 3.14)
 project(client_server_example)
 
 include(FetchContent)
-FetchContent_Declare(mdspan GIT_REPOSITORY https://github.com/kokkos/mdspan.git)
+FetchContent_Declare(mdspan
+    GIT_REPOSITORY https://github.com/kokkos/mdspan.git 
+    GIT_TAG ebf88178354eebd578e11eecc6cd1d43e282d7b3 #fix-clang-apple-c++17+
+)
 FetchContent_MakeAvailable(mdspan)
 
 add_executable(mdspan_test main.cpp)
